@@ -17,11 +17,15 @@ const app = new Elysia()
         <button hx-get="/hello" hx-target="#result">
           Click me
         </button>
+        <button hx-get="/opfer" hx-target="#result">
+          Click me for magik
+        </button>
         <div id="result"></div>
       </body>
     </html>
   ))
   .get("/hello", () => <p>Hello from the server 👋</p>)
+  .get("/opfer", () => db.select().from(postsTable))
   .listen(3000);
 
 console.log(
