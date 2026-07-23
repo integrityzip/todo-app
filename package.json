@@ -3,13 +3,22 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "build:client": "bun build ./src/client/htmx.ts --outdir ./public --entry-naming htmx.js",
+    "dev": "bun run build:client && bun run --watch src/index.tsx"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@elysiajs/html": "^1.4.2",
+    "@elysiajs/static": "^1.4.10",
+    "@libsql/client": "^0.17.4",
+    "@tursodatabase/database": "^0.7.1",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^1.0.0-rc.4",
+    "elysia": "latest",
+    "htmx.org": "2.0.2"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "drizzle-kit": "^1.0.0-rc.4"
   },
   "module": "src/index.js"
 }
